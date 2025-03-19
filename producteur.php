@@ -224,15 +224,21 @@
                                     $QteProduit = $returnQueryGetProducts[$i]["Qte_Produit"];
                                     $unitePrixProduit = $returnQueryGetProducts[$i]["Nom_Unite_Prix"];
 
-                                    if ($QteProduit>0){
-                                        echo '<div class="squareProduct" >';
-                                        echo $htmlProduitDeuxPoints, $nomProduit . "<br>";
-                                        echo $htmlTypeDeuxPoints, $typeProduit . "<br>";
-                                        echo $htmlPrix, $prixProduit .' €/'.$unitePrixProduit. "<br>";
-                                        echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="'.$htmlImageNonFournie.'" style="width: 100%; height: 85%;" ><br>';
+                                    /* MONTRER EGALEMENT QUAND LE STOCK EST A 0 */
+                                    echo '<div class="squareProduct">';
+                                    echo $htmlProduitDeuxPoints, $nomProduit . "<br>";
+                                    echo $htmlTypeDeuxPoints, $typeProduit . "<br>";
+                                    echo $htmlPrix, $prixProduit .' €/'.$unitePrixProduit. "<br>";
+                                    echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="'.$htmlImageNonFournie.'" style="width: 100%; height: 85%;" ><br>';
+
+                                    if ($QteProduit > 0) {
                                         echo '<input type="number" name="'.$Id_Produit.'" placeholder="max '.$QteProduit.'" max="'.$QteProduit.'" min="0" value="0"> '.$unitePrixProduit;
-                                        echo '</div> '; 
+                                    } else {
+                                        echo '<input type="number" name="'.$Id_Produit.'" placeholder="Rupture de stock" disabled> '.$unitePrixProduit;
                                     }
+
+                                    echo '</div>';
+                                    
                                     $i++;
                                 }
                             }
