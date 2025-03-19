@@ -181,4 +181,11 @@ $htmlConditionsRueDetails="La calle debe tener entre 0 y 120 caracteres alfanum�
 $htmlCodeIncorrect="Código incorrecto";
 $htmlChoisirLangue="Elegir un idioma";
 $htmlValider="Validar";
+
+$htmlTypeDeuxPoints = "Tipo: ";
+$htmlPrix = "Precio: ";
+$htmlStockDeuxPoints = "Existencias disponibles: ";
+$htmlImageNonFournie = "Imagen no proporcionada";
+$htmlMaxStock = "Cantidad máxima";
+$htmlProduitEnRupture = "Producto agotado";
 ?>

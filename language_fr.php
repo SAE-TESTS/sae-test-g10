@@ -181,4 +181,10 @@ $htmlConditionsRueDetails="La rue doit faire entre 0 et 120 caractères alphanum
 $htmlCodeIncorrect="code incorrect";
 $htmlChoisirLangue="Choisir une langue";
 $htmlValider="Valider";
+$htmlTypeDeuxPoints = "Type : ";
+$htmlPrix = "Prix : ";
+$htmlStockDeuxPoints = "Stock disponible : ";
+$htmlImageNonFournie = "Image non fournie";
+$htmlMaxStock = "Stock max";
+$htmlProduitEnRupture = "Produit en rupture de stock";
 ?>

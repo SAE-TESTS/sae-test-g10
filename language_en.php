@@ -181,4 +181,12 @@ $htmlConditionsRueDetails = "The street must be between 0 and 120 alphanumeric c
 $htmlCodeIncorrect = "Incorrect code";
 $htmlChooseLanguage = "Choose a language";
 $htmlValidate = "Validate";
+
+$htmlTypeDeuxPoints = "Type: ";
+$htmlPrix = "Price: ";
+$htmlStockDeuxPoints = "Available stock: ";
+$htmlImageNonFournie = "Image not provided";
+$htmlMaxStock = "Max stock";
+$htmlProduitEnRupture = "Out of stock product";
+
 ?>

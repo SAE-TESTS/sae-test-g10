@@ -216,29 +216,37 @@
                                 echo $htmlAucunProduitEnStock;
                             }
                             else{
-                                while ($i<count($returnQueryGetProducts)){
+                                while ($i < count($returnQueryGetProducts)) {
                                     $Id_Produit = $returnQueryGetProducts[$i]["Id_Produit"];
                                     $nomProduit = $returnQueryGetProducts[$i]["Nom_Produit"];
                                     $typeProduit = $returnQueryGetProducts[$i]["Desc_Type_Produit"];
                                     $prixProduit = $returnQueryGetProducts[$i]["Prix_Produit_Unitaire"];
                                     $QteProduit = $returnQueryGetProducts[$i]["Qte_Produit"];
                                     $unitePrixProduit = $returnQueryGetProducts[$i]["Nom_Unite_Prix"];
-
-                                    /* MONTRER EGALEMENT QUAND LE STOCK EST A 0 */
-                                    echo '<div class="squareProduct">';
-                                    echo $htmlProduitDeuxPoints, $nomProduit . "<br>";
-                                    echo $htmlTypeDeuxPoints, $typeProduit . "<br>";
-                                    echo $htmlPrix, $prixProduit .' €/'.$unitePrixProduit. "<br>";
-                                    echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="'.$htmlImageNonFournie.'" style="width: 100%; height: 85%;" ><br>';
-
-                                    if ($QteProduit > 0) {
-                                        echo '<input type="number" name="'.$Id_Produit.'" placeholder="max '.$QteProduit.'" max="'.$QteProduit.'" min="0" value="0"> '.$unitePrixProduit;
-                                    } else {
-                                        echo '<input type="number" name="'.$Id_Produit.'" placeholder="Rupture de stock" disabled> '.$unitePrixProduit;
-                                    }
-
-                                    echo '</div>';
                                     
+                                    // Vérifier si le produit est en rupture de stock pour ajouter une classe CSS spécifique
+                                    $classStock = ($QteProduit == 0) ? ' out-of-stock' : '';
+                                
+                                    echo '<div class="squareProduct' . $classStock . '">';
+                                    echo '<h3>' . $nomProduit . '</h3>';
+                                    echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduit . '</p>';
+                                    echo '<p><strong>' . $htmlPrix . '</strong> ' . $prixProduit . ' €/' . $unitePrixProduit . '</p>';
+                                    
+                                    // Affichage du stock disponible
+                                    echo '<p><strong>' . $htmlStockDeuxPoints . '</strong> ' . $QteProduit . ' ' . $unitePrixProduit . '</p>';
+                                    
+                                    // Image du produit
+                                    echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="' . $htmlImageNonFournie . '" style="width: 100%; height: 85%;" ><br>';
+                                    
+                                    // Input quantité (désactivé si stock à 0)
+                                    if ($QteProduit > 0) {
+                                        echo '<input type="number" class="input-quantity" name="' . $Id_Produit . '" placeholder="' . $htmlMaxStock . ' ' . $QteProduit . '" max="' . $QteProduit . '" min="0" value="0"> ' . $unitePrixProduit;
+                                    } else {
+                                        echo '<input type="number" class="input-quantity disabled" name="' . $Id_Produit . '" placeholder="0" disabled> ' . $unitePrixProduit;
+                                        echo '<p class="rupture-message">⚠ ' . $htmlProduitEnRupture . '</p>';
+                                    }
+                                    
+                                    echo '</div>';
                                     $i++;
                                 }
                             }
