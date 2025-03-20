@@ -73,7 +73,7 @@ if (isset($_POST['deconnexion'])) {
                         </div>
                         <input class="boutonPopup" type="submit" name="formClicked" value="<?php echo $htmlModifier ?>">
                     </form>
-                    <a href="traitements/del_acc.php"><button><?php echo $htmlSupprimerCompte ?></button></a>
+                    <a onclick="return confirm('Confirmez la suppression.')" href="traitements/del_acc.php"><button><?php echo $htmlSupprimerCompte ?></button></a>
 
                     <?php if ((isset($_SESSION['isProd']) and $_SESSION['isProd'])) { ?>
                         <a href="./addProfilPicture.php"><button><?php echo 'ajouter une photo de profil' ?></button></a>
