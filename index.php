@@ -344,12 +344,23 @@
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 if ($rayon >= 100) {
-                                    echo '<a href="producteur.php?Id_Prod=' . $row["Id_Prod"] . '" class="square1"  >';
-                                    echo '' . $row["Prof_Prod"] . "<br>";
-                                    echo $row["Prenom_Uti"] . " " . mb_strtoupper($row["Nom_Uti"]) . "<br>";
-                                    echo $row["Adr_Uti"] . "<br>";
-                                    echo '<img src="img_producteur/' . $row["Id_Prod"]  . '.png" alt="' . $htmlImageUtilisateur . '" style="width: 100%; height: 85%;" ><br>';
-                                    echo '</a> ';
+                                    echo '<div class="contact-card">';
+                                    echo '  <a href="producteur.php?Id_Prod=' . $row["Id_Prod"] . '" class="contact-card__link">';
+
+                                    // Photo
+                                    echo '      <img src="img_producteur/' . $row["Id_Prod"] . '.png" alt="' . $htmlImageUtilisateur . '" class="contact-card__img">';
+
+                                    // Nom et Prénom
+                                    echo '      <h2 class="contact-card__name">' . $row["Prenom_Uti"] . ' ' . mb_strtoupper($row["Nom_Uti"]) . '</h2>';
+
+                                    // Profession
+                                    echo '      <p class="contact-card__job">' . $row["Prof_Prod"] . '</p>';
+
+                                    // Adresse
+                                    echo '      <p class="contact-card__address">' . $row["Adr_Uti"] . '</p>';
+
+                                    echo '  </a>';
+                                    echo '</div>';
                                 } else {
                                     $urlProd = 'https://nominatim.openstreetmap.org/search?format=json&q=' . urlencode($row["Adr_Uti"]);
                                     $coordonneesProd = latLongGps($urlProd);
@@ -357,12 +368,23 @@
                                     $longitudeProd = $coordonneesProd[1];
                                     $distance = distance($latitudeUti, $longitudeUti, $latitudeProd, $longitudeProd);
                                     if ($distance < $rayon) {
-                                        echo '<a href="producteur.php?Id_Prod=' . $row["Id_Prod"] . '" class="square1"  >';
-                                        echo "Nom : " . $row["Nom_Uti"] . "<br>";
-                                        echo "Prénom : " . $row["Prenom_Uti"] . "<br>";
-                                        echo "Adresse : " . $row["Adr_Uti"] . "<br>";
-                                        echo '<img src="img_producteur/' . $row["Id_Prod"]  . '.png" alt="Image utilisateur" style="width: 100%; height: 85%;" ><br>';
-                                        echo '</a> ';
+                                        echo '<div class="contact-card">';
+                                        echo '  <a href="producteur.php?Id_Prod=' . $row["Id_Prod"] . '" class="contact-card__link">';
+
+                                        // Photo
+                                        echo '      <img src="img_producteur/' . $row["Id_Prod"] . '.png" alt="' . $htmlImageUtilisateur . '" class="contact-card__img">';
+
+                                        // Nom et Prénom
+                                        echo '      <h2 class="contact-card__name">' . $row["Prenom_Uti"] . ' ' . mb_strtoupper($row["Nom_Uti"]) . '</h2>';
+
+                                        // Profession
+                                        echo '      <p class="contact-card__job">' . $row["Prof_Prod"] . '</p>';
+
+                                        // Adresse
+                                        echo '      <p class="contact-card__address">' . $row["Adr_Uti"] . '</p>';
+
+                                        echo '  </a>';
+                                        echo '</div>';
                                     }
                                 }
                             }
