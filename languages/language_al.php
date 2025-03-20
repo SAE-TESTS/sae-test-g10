@@ -205,4 +205,19 @@ $typeProduitsTrad = [
     "Viande" => "Fleisch",
     "Vin" => "Wein"
 ];
+
+$htmlModifierProduit = "Produkt bearbeiten";
+$htmlProduitDeuxPoints = "Produkt:"; 
+$htmlCategorie = "Kategorie:";
+$htmlPrix = "Preis:";
+$htmlLeKilo = "pro Kilogramm";
+$htmlLaPiece = "pro Stück";
+$htmlStockDeuxPoints = "Verfügbarer Bestand:";
+$htmlKg = "Kg";
+$htmlL = "L";
+$htmlM2 = "m²";
+$htmlPiece = "Stück";
+$htmlImageDeuxPoints = "Bild:";
+$htmlConfirmerModifProd = "Änderung bestätigen";
+$htmlAnnulerModifProd = "Änderung abbrechen";
 ?>

@@ -277,4 +277,18 @@ $typeProduitsTrad = [
     "Viande" => "肉类",
     "Vin" => "葡萄酒"
 ];
+$htmlModifierProduit = "修改产品";
+$htmlProduitDeuxPoints = "产品："; 
+$htmlCategorie = "类别：";
+$htmlPrix = "价格：";
+$htmlLeKilo = "每公斤";
+$htmlLaPiece = "每件";
+$htmlStockDeuxPoints = "库存：";
+$htmlKg = "千克";
+$htmlL = "升";
+$htmlM2 = "平方米";
+$htmlPiece = "件";
+$htmlImageDeuxPoints = "图片：";
+$htmlConfirmerModifProd = "确认修改";
+$htmlAnnulerModifProd = "取消修改";
 ?>

@@ -208,5 +208,18 @@ $typeProduitsTrad = [
     "Viande" => "Мясо",
     "Vin" => "Вино"
 ];
-
+$htmlModifierProduit = "Изменить продукт";
+$htmlProduitDeuxPoints = "Продукт:"; 
+$htmlCategorie = "Категория:";
+$htmlPrix = "Цена:";
+$htmlLeKilo = "за килограмм";
+$htmlLaPiece = "за штуку";
+$htmlStockDeuxPoints = "Доступный запас:";
+$htmlKg = "Кг";
+$htmlL = "Литр";
+$htmlM2 = "м²";
+$htmlPiece = "Штука";
+$htmlImageDeuxPoints = "Изображение:";
+$htmlConfirmerModifProd = "Подтвердить изменения";
+$htmlAnnulerModifProd = "Отменить изменения";
 ?>

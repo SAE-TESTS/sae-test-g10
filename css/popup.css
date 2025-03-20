@@ -131,7 +131,3 @@
     gap: 10px;
     align-items: center;
 }
-
-.boutonPopup {
-    grid-column: span 2; /* Le bouton prend toute la largeur */
-}

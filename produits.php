@@ -199,16 +199,11 @@
                             // Image du produit
                             echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="' . $htmlImageNonFournie . '" style="width: 100%; height: 85%;" ><br>';
                             
-                            // Bouton pour ouvrir la pop-up de modification
-                            echo '<button type="button" class="btn-modifier"
-                                    data-id="' . $Id_Produit . '" 
-                                    data-nom="' . $nomProduit . '" 
-                                    data-type="' . $typeProduitTraduit . '" 
-                                    data-prix="' . $prixProduit . '" 
-                                    data-quantite="' . $QteProduit . '" 
-                                    >
-                                    ' . $htmlModifier . '
-                                  </button>';
+                            // Ajout du bouton "Modifier"
+                            echo '<form action="product_modification.php" method="POST">';
+                            echo '<input type="hidden" name="modifyIdProduct" value="' . $Id_Produit . '">';
+                            echo '<button type="submit" class="btn-modify">' . $htmlModifier . '</button>';
+                            echo '</form>';
                     
                             // Bouton de suppression (inchangé)
                             echo '<form action="supprimer_produit.php" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ' . $nomProduit . ' ?\');">';
@@ -225,31 +220,6 @@
                     echo '</div>'; // Fin de la galerie de produits
 
                     ?>
-
-                    <div id="popupModification" class="popup" style="display: none;">
-                        <div class="contenuPopup">
-                            <button class="boutonQuitPopup" onclick="fermerPopup()">✖</button>
-                            <h3 class="titrePopup">Modifier le produit</h3>
-                            <form id="formModifierProduit" action="product_modification.php" method="post" class="formPopup">
-                                <input type="hidden" name="Id_Produit" id="popupIdProduit">
-
-                                <label for="popupNomProduit">Nom :</label>
-                                <input type="text" name="Nom_Produit" id="popupNomProduit" class="zoneDeTextePopup">
-
-                                <label for="popupTypeProduit">Type :</label>
-                                <input type="text" name="Type_Produit" id="popupTypeProduit" class="zoneDeTextePopup">
-
-                                <label for="popupPrixProduit">Prix :</label>
-                                <input type="number" step="0.01" name="Prix_Produit" id="popupPrixProduit" class="zoneDeTextePopup">
-
-                                <label for="popupQuantiteProduit">Quantité :</label>
-                                <input type="number" name="Qte_Produit" id="popupQuantiteProduit" class="zoneDeTextePopup">
-
-                                <button type="submit" class="boutonPopup">Sauvegarder</button>
-                            </form>
-                        </div>
-                    </div>
-
 
                     </div>
 
@@ -268,5 +238,4 @@
         </div>
     </div>
     <?php require "popups/gestion_popups.php";?>
-    <script src="js/popup.js"></script>
 </body>

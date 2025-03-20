@@ -207,4 +207,18 @@ $typeProduitsTrad = [
     "Vin" => "Vin"
 ];
 
+$htmlModifierProduit = "Modifier le produit";
+$htmlProduitDeuxPoints = "Produit :"; 
+$htmlCategorie = "Catégorie :";
+$htmlPrix = "Prix :";
+$htmlLeKilo = "le kilo";
+$htmlLaPiece = "la pièce";
+$htmlStockDeuxPoints = "Stock disponible :";
+$htmlKg = "Kg";
+$htmlL = "L";
+$htmlM2 = "m²";
+$htmlPiece = "Pièce";
+$htmlImageDeuxPoints = "Image :";
+$htmlConfirmerModifProd = "Confirmer la modification";
+$htmlAnnulerModifProd = "Annuler la modification";
 ?>
