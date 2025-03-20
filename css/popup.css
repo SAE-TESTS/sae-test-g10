@@ -124,3 +124,14 @@
 .text{
     margin: 0;
 }
+
+.formPopup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.boutonPopup {
+    grid-column: span 2; /* Le bouton prend toute la largeur */
+}

@@ -133,13 +133,45 @@ body{
 }
 
 .boutonDeConnection:hover{
-    background: #71B340;
+    background-color: #45a049 !important;
     color: #fff;
-    transform: translateY(-3px);
+    transform: translateY(-3px) ;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     background: url('../img/connexion.svg') no-repeat;
     background-position: calc(100% - 10px) center;
 }
+
+.select-langue {
+    margin-right: 20px;
+    appearance: none;
+    background-color: #71B340;
+    color: #fff;
+    border: 2px solid #152f16;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100px;
+}
+
+.select-langue:hover {
+    background-color: #45a049;
+    border: 2px solid #152f16;
+    border-radius: 10px;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.select-langue option {
+    text-align: left;
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+}
+
 
 
 .gallery-container {
@@ -250,24 +282,6 @@ body{
     
 }
 
-
-/* MODIFICATION DU STYLE DES BOUTONS */
-button, input[type="button"], input[type="submit"] {
-    background-color: #4CAF50; /* Vert élégant */
-    color: white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Effet au survol */
-button:hover, input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: #45a049;
-    transform: scale(1.05); /* Effet de zoom léger */
-}
 
 /* Style des boutons désactivés */
 input[disabled] {
