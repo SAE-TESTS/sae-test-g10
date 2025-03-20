@@ -18,8 +18,12 @@
         $motdepasse = "ahV4saerae";
         $basededonnees = "inf2pj_02";
     
-        // Connect to database
-        return new PDO('mysql:host=' . $serveur . ';dbname=' . $basededonnees, $utilisateur, $motdepasse);
+        $bdd = new PDO("mysql:host=$serveur;dbname=$basededonnees;charset=utf8mb4", $utilisateur, $motdepasse, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]);
+    
+        $bdd->exec("SET NAMES utf8mb4");
+        return $bdd;
       }
       if(!isset($_SESSION)){
         session_start();
@@ -211,6 +215,22 @@
                             $queryGetProducts->execute();
                             $returnQueryGetProducts = $queryGetProducts->fetchAll(PDO::FETCH_ASSOC);
 
+                            // Tableau des traductions des unités
+                            $unitesTrad = [
+                                "Kg" => $htmlKg,
+                                "kg" => $htmlKg,
+                                "Kilo" => $htmlLeKilo,
+                                "Le kilo" => $htmlLeKilo,
+                                "L" => $htmlL,
+                                "l" => $htmlL,
+                                "m²" => $htmlM2,
+                                "M²" => $htmlM2, 
+                                "Pièce" => $htmlPiece,
+                                "piece" => $htmlPiece,
+                                "la pièce" => $htmlLaPiece,
+                                "Piece" => $htmlPiece 
+                            ];
+
                             $i=0;
                             if(count($returnQueryGetProducts)==0){
                                 echo $htmlAucunProduitEnStock;
@@ -219,33 +239,40 @@
                                 while ($i < count($returnQueryGetProducts)) {
                                     $Id_Produit = $returnQueryGetProducts[$i]["Id_Produit"];
                                     $nomProduit = $returnQueryGetProducts[$i]["Nom_Produit"];
-                                    $typeProduit = $returnQueryGetProducts[$i]["Desc_Type_Produit"];
+                                    $typeProduit = trim($returnQueryGetProducts[$i]["Desc_Type_Produit"]); // Nettoyage du type
                                     $prixProduit = $returnQueryGetProducts[$i]["Prix_Produit_Unitaire"];
                                     $QteProduit = $returnQueryGetProducts[$i]["Qte_Produit"];
                                     $unitePrixProduit = $returnQueryGetProducts[$i]["Nom_Unite_Prix"];
-                                    
+                                
                                     // Vérifier si le produit est en rupture de stock pour ajouter une classe CSS spécifique
                                     $classStock = ($QteProduit == 0) ? ' out-of-stock' : '';
                                 
+                                    // Normalisation de la casse
+                                    $typeProduit = ucfirst(strtolower($typeProduit));
+                                
+                                    // Vérification si la traduction existe dans le tableau
+                                    $typeProduitTraduit = isset($typeProduitsTrad[$typeProduit]) ? $typeProduitsTrad[$typeProduit] : $typeProduit; 
+                                    $uniteTraduit = isset($unitesTrad[$unitePrixProduit]) ? $unitesTrad[$unitePrixProduit] : $unitePrixProduit;
+                                
                                     echo '<div class="squareProduct' . $classStock . '">';
                                     echo '<h3>' . $nomProduit . '</h3>';
-                                    echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduit . '</p>';
-                                    echo '<p><strong>' . $htmlPrix . '</strong> ' . $prixProduit . ' €/' . $unitePrixProduit . '</p>';
-                                    
+                                    echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduitTraduit . '</p>';
+                                    echo '<p><strong>' . $htmlPrix . '</strong> ' . $prixProduit . ' €/' . $uniteTraduit . '</p>';
+                                
                                     // Affichage du stock disponible
-                                    echo '<p><strong>' . $htmlStockDeuxPoints . '</strong> ' . $QteProduit . ' ' . $unitePrixProduit . '</p>';
-                                    
+                                    echo '<p><strong>' . $htmlStockDeuxPoints . '</strong> ' . $QteProduit . ' ' . $uniteTraduit . '</p>';
+                                
                                     // Image du produit
                                     echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="' . $htmlImageNonFournie . '" style="width: 100%; height: 85%;" ><br>';
-                                    
+                                
                                     // Input quantité (désactivé si stock à 0)
                                     if ($QteProduit > 0) {
-                                        echo '<input type="number" class="input-quantity" name="' . $Id_Produit . '" placeholder="' . $htmlMaxStock . ' ' . $QteProduit . '" max="' . $QteProduit . '" min="0" value="0"> ' . $unitePrixProduit;
+                                        echo '<input type="number" class="input-quantity" name="' . $Id_Produit . '" placeholder="' . $htmlMaxStock . ' ' . $QteProduit . '" max="' . $QteProduit . '" min="0" value="0"> ' . $uniteTraduit;
                                     } else {
-                                        echo '<input type="number" class="input-quantity disabled" name="' . $Id_Produit . '" placeholder="0" disabled> ' . $unitePrixProduit;
+                                        echo '<input type="number" class="input-quantity disabled" name="' . $Id_Produit . '" placeholder="0" disabled> ' . $uniteTraduit;
                                         echo '<p class="rupture-message">⚠ ' . $htmlProduitEnRupture . '</p>';
                                     }
-                                    
+                                
                                     echo '</div>';
                                     $i++;
                                 }

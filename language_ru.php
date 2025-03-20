@@ -190,4 +190,23 @@ $htmlStockDeuxPoints = "Доступный запас: ";
 $htmlImageNonFournie = "Изображение не предоставлено";
 $htmlMaxStock = "Максимальный запас";
 $htmlProduitEnRupture = "Товар отсутствует";
+$htmlTout = "Все";
+$htmlAnimaux = "Животные";
+$htmlFruits = "Фрукты";
+$htmlGraines = "Семена";
+$htmlLegumes = "Овощи";
+$htmlPlanches = "Доски";
+$htmlViande = "Мясо";
+$htmlVin = "Вино";
+
+$typeProduitsTrad = [
+    "Animaux" => "Животные",
+    "Fruits" => "Фрукты",
+    "Graines" => "Семена",
+    "Légumes" => "Овощи",
+    "Planches" => "Доски",
+    "Viande" => "Мясо",
+    "Vin" => "Вино"
+];
+
 ?>

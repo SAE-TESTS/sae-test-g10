@@ -260,4 +260,21 @@ $htmlStockDeuxPoints = "可用库存: ";
 $htmlImageNonFournie = "未提供图片";
 $htmlMaxStock = "最大库存";
 $htmlProduitEnRupture = "缺货产品";
+$htmlTout = "所有";
+$htmlAnimaux = "动物";
+$htmlFruits = "水果";
+$htmlGraines = "种子";
+$htmlLegumes = "蔬菜";
+$htmlPlanches = "木板";
+$htmlViande = "肉类";
+$htmlVin = "葡萄酒";
+$typeProduitsTrad = [
+    "Animaux" => "动物",
+    "Fruits" => "水果",
+    "Graines" => "种子",
+    "Légumes" => "蔬菜",
+    "Planches" => "木板",
+    "Viande" => "肉类",
+    "Vin" => "葡萄酒"
+];
 ?>
