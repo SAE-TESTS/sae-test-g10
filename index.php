@@ -237,17 +237,18 @@
                     ?>
                 </div>
                 <div class="languagePicker">
-                    <form action="language.php" method="post" id="languageForm">
-                        <select name="language" id="languagePicker" class="select-langue" onchange="submitForm()">
-                            <option value="fr" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="fr") echo 'selected';?>>Français</option>
-                            <option value="en" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="en") echo 'selected';?>>English</option>
-                            <option value="es" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="es") echo 'selected';?>>Español</option>
-                            <option value="al" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="al") echo 'selected';?>>Deutsch</option>
-                            <option value="ru" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="ru") echo 'selected';?>>русский</option>
-                            <option value="ch" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="ch") echo 'selected';?>>中國人</option>
-                        </select>
-                    </form> 
-                </div>
+                     <form action="language.php" method="post" id="languageForm">
+                         <select name="language" id="languagePicker" class="select-langue" onchange="submitForm()">
+                             <option value="fr" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="fr") echo 'selected';?>>Français</option>
+                             <option value="en" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="en") echo 'selected';?>>English</option>
+                             <option value="es" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="es") echo 'selected';?>>Español</option>
+                             <option value="al" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="al") echo 'selected';?>>Deutsch</option>
+                             <option value="ru" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="ru") echo 'selected';?>>русский</option>
+                             <option value="ch" <?php if(isset($_SESSION["language"]) && $_SESSION["language"]=="ch") echo 'selected';?>>中國人</option>
+                         </select>
+                     </form>
+                     <form method="post">
+                 </div>
             
                 <script>
                     function submitForm() {
@@ -265,9 +266,9 @@
                     
                     ?>
 
-                    <button type="submit" class="boutonDeConnection">
-                        <?php echo isset($_SESSION['Mail_Uti']) ? $_SESSION['Mail_Uti'] : $htmlSeConnecter; ?>
-                    </button>
+                    <input type="submit" 
+                        value="<?php echo isset($_SESSION['Mail_Uti']) ? $_SESSION['Mail_Uti'] : $htmlSeConnecter; ?>" 
+                        class="boutonDeConnection">
                     <input type="hidden" name="popup" value=<?php if(isset($_SESSION['Mail_Uti'])){echo '"info_perso"';}else{echo '"sign_in"';}?>>
                 
                 </form>

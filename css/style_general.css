@@ -47,6 +47,8 @@ body{
 
     display: block;
 
+    border-right: 2px solid #152f16;
+
     background-color: #669D31;
 }
 
@@ -116,13 +118,11 @@ body{
 }
 
 
-.boutonDeConnection{ /* test */
+.boutonDeConnection{
     height: 60px;
     margin-right: 20px;
-    background: url('../img/connexion.svg') no-repeat;
-    background-position: calc(100% - 10px) center;
     cursor: pointer;
-
+    background-color: #45a049;
     padding: 12px 20px;
     color: #000;
     border: 2px solid #71B340;
@@ -137,8 +137,6 @@ body{
     color: #fff;
     transform: translateY(-3px) ;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    background: url('../img/connexion.svg') no-repeat;
-    background-position: calc(100% - 10px) center;
 }
 
 .select-langue {
@@ -172,6 +170,26 @@ body{
     font-size: 16px;
 }
 
+button, input[type="button"], input[type="submit"] {
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #71B340;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button, input[type="button"], input[type="submit"]:hover {
+    background: #71B340;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);                                                                                                  
+}
 
 
 .gallery-container {
@@ -344,4 +362,9 @@ input[disabled] {
     color: #721c24;
     font-weight: bold;
     margin-top: 5px;
+}
+
+.centrecemachinbordeldemerde{
+    text-align: center;
+    margin-top: 8%;
 }
