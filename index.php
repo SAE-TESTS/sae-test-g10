@@ -211,6 +211,18 @@
 
 
             </div>
+            <form action="language.php" method="post" id="languageForm">
+                    <select name="language" id="languagePicker" onchange="submitForm()">
+                        <option value="fr" <?php if($_SESSION["language"]=="fr") echo 'selected';?>>Français</option>
+                        <option value="en" <?php if($_SESSION["language"]=="en") echo 'selected';?>>English</option>
+                        <option value="es" <?php if($_SESSION["language"]=="es") echo 'selected';?>>Español</option>
+                        <option value="al" <?php if($_SESSION["language"]=="al") echo 'selected';?>>Deutsch</option>
+                        <option value="ru" <?php if($_SESSION["language"]=="ru") echo 'selected';?>>русский</option>
+                        <option value="ch" <?php if($_SESSION["language"]=="ch") echo 'selected';?>>中國人</option>
+                    </select>
+                    </form>
+            <form method="post">
+
         </div>
         <div class="rightColumn">
             <div class="topBanner">
