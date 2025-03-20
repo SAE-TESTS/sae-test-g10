@@ -1,0 +1,70 @@
+/* Conteneur global pour toutes les cartes */
+.contact-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+  
+  
+  /* Lien à l'intérieur de la carte (optionnel, si vous voulez que tout soit cliquable) */
+  .contact-card__link {
+    display: block;
+    text-decoration: none; /* Retirer le soulignement */
+    color: inherit;        /* Garder la même couleur de texte */
+    padding: 1rem;         /* Espace interne */
+    text-align: center;    /* Centrer le contenu */
+  }
+  
+  .contact-card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid transparent; /* Bordure par défaut transparente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: #4caf50;
+  }  
+  
+  /* Image circulaire */
+  .contact-card__img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+  }
+  
+  /* Nom */
+  .contact-card__name {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  /* Profession */
+  .contact-card__job {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0.5rem 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Adresse */
+  .contact-card__address {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+  
