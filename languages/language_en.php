@@ -189,4 +189,21 @@ $htmlImageNonFournie = "Image not provided";
 $htmlMaxStock = "Max stock";
 $htmlProduitEnRupture = "Out of stock product";
 
+$htmlTout = "All";
+$htmlAnimaux = "Animals";
+$htmlFruits = "Fruits";
+$htmlGraines = "Seeds";
+$htmlLegumes = "Vegetables";
+$htmlPlanches = "Boards";
+$htmlViande = "Meat";
+$htmlVin = "Wine";
+$typeProduitsTrad = [
+    "Animaux" => "Animals",
+    "Fruits" => "Fruits",
+    "Graines" => "Seeds",
+    "Légumes" => "Vegetables",
+    "Planches" => "Boards",
+    "Viande" => "Meat",
+    "Vin" => "Wine"
+];
 ?>

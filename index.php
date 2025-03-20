@@ -58,8 +58,13 @@
             $serveur = "localhost";
             $motdepasse = "ahV4saerae";
             $basededonnees = "inf2pj_02";
-            // Connect to database
-            return new PDO('mysql:host=' . $serveur . ';dbname=' . $basededonnees, $utilisateur, $motdepasse);
+            
+            $bdd = new PDO("mysql:host=$serveur;dbname=$basededonnees;charset=utf8mb4", $utilisateur, $motdepasse, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+        
+            $bdd->exec("SET NAMES utf8mb4");
+            return $bdd;
         }
 
         function latLongGps($url){
@@ -236,6 +241,7 @@
                         if (isset($_SESSION["isProd"]) and ($_SESSION["isProd"]==true)){
                             echo'<a class="bontonDeNavigation" href="produits.php">'.$htmlProduits.'</a>';
                             echo'<a class="bontonDeNavigation" href="delivery.php">'.$htmlCommandes.'</a>';
+
                         }
                         if (isset($_SESSION["isAdmin"]) and ($_SESSION["isAdmin"]==true)){
                             echo'<a class="bontonDeNavigation" href="panel_admin.php">'.$htmlPanelAdmin.'</a>';
