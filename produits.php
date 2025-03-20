@@ -44,59 +44,12 @@
         <div class="leftColumn">
 			<img class="logo" href="index.php" src="img/logo.png">
             <div class="contenuBarre">
-                <!-- some code -->
 
-
-
-                <center><p><strong><?php echo $htmlAjouterProduit; ?></strong></p>
-            <form action="insert_products.php" method="post" enctype="multipart/form-data">
-                <label for="pwd"><?php echo $htmlProduitDeuxPoints; ?> </label>
-                <input type="text" pattern="[A-Za-z0-9 ]{0,100}" name="nomProduit" placeholder="<?php echo $htmlNomDuProduit; ?>" required><br><br>
-
-                <select name="categorie">
-                    <option value="6"><?php echo $htmlAnimaux; ?></option>
-                    <option value="1"><?php echo $htmlFruit; ?></option>
-                    <option value="3"><?php echo $htmlGraine; ?></option>
-                    <option value="2"><?php echo $htmlLégume; ?></option>
-                    <option value="7"><?php echo $htmlPlanche; ?></option>
-                    <option value="4"><?php echo $htmlViande; ?></option>
-                    <option value="5"><?php echo $htmlVin; ?></option>
-			    </select>
-                <br>
-                <br><?php echo $htmlPrix; ?>
-                <input style="width: 50px;" type="number" min="0" name="prix" required>€
-                <label>
-                    <input type="radio" name="unitPrix" value="1" checked="true"> <?php echo $htmlLeKilo; ?>
-                </label>
-                <label>
-                    <input type="radio" name="unitPrix" value="4"> <?php echo $htmlLaPiece; ?>
-                </label>
-                <br>
-                <br><?php echo $htmlStockDeuxPoints; ?>
-                <input type="number" style="width: 50px;" min="0" name="quantite" required>
-                <label>
-                    <input type="radio" name="unitQuantite" value="1" checked="true"> <?php echo $htmlKg; ?>
-                </label>
-                <label>
-                    <input type="radio" name="unitQuantite" value="2"> <?php echo $htmlL; ?>
-                </label>
-                <label>
-                    <input type="radio" name="unitQuantite" value="3"> <?php echo $htmlM2; ?>
-                </label>
-                <label>
-                    <input type="radio" name="unitQuantite" value="4"> <?php echo $htmlPiece; ?>
-                </label>
-                <br>
-                <br>
-                <strong><?php echo $htmlImageDeuxPoints; ?></strong>
-                <input type="file" name="image" accept=".png">
-                <br>
-                <br>
-                <br>
-                <input type="submit" value="<?php echo $htmlAjouterProduit; ?>">
-            </form>
-            </center>
-
+            <div class="contenuBarre">
+                <form action="ajouter_produit.php" method="get">
+                    <button type="submit" class="bouton-ajout-produit"><?php echo $htmlAjouterProduit; ?></button>
+                </form>
+            </div>
 
 
             </div>
