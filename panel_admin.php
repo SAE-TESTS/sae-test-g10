@@ -110,7 +110,7 @@
 
                     while ($row = $result->fetch_assoc()) {
                         echo '<form method="post" action="traitements/del_acc.php" class="squarePanelAdmin">
-                                        <input type="submit" name="submit" id="submit" value="' . $htmlSupprimerCompte . '"><br>
+                                        <input type="submit" onclick="return confirm(\'Confirmez la suppression.\')" name="submit" id="submit" value="' . $htmlSupprimerCompte . '"><br>
                                         <input type="hidden" name="Id_Uti" value="' . $row["Id_Uti"] . '">';
                         echo $htmlNomDeuxPoints, $row["Nom_Uti"] . "<br>";
                         echo $htmlPrénomDeuxPoints, $row["Prenom_Uti"] . "<br>";
