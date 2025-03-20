@@ -7,7 +7,7 @@ $connexion = new mysqli($serveur, $utilisateur, $motdepasse, $basededonnees);
 
 // Vérifiez la connexion
 if ($connexion->connect_error) {
-    die("Erreur de connexion : " . $connexion->connect_error);  
+    die("Erreur de connexion : " . $connexion->connect_error);
 }
 // Préparez la requête SQL en utilisant des requêtes préparées pour des raisons de sécurité
 $requete = 'SELECT * FROM UTILISATEUR WHERE UTILISATEUR.Mail_Uti=?';
@@ -18,4 +18,3 @@ $result = $stmt->get_result();
 
 $stmt->close();
 $connexion->close();
-?>
