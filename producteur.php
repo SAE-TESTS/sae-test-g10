@@ -354,3 +354,25 @@
     </div>
     <?php require "popups/gestion_popups.php"; ?>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form[action='insert_commande.php']");
+        const submitButton = form.querySelector("button[type='submit']");
+
+        form.addEventListener("submit", function(event) {
+            let hasSelection = false;
+            const inputs = form.querySelectorAll("input[type='number']");
+
+            inputs.forEach(input => {
+                if (parseInt(input.value) > 0) {
+                    hasSelection = true;
+                }
+            });
+
+            if (!hasSelection) {
+                event.preventDefault(); // Bloque l'envoi du formulaire
+                alert("Veuillez sélectionner au moins un produit avant de passer commande.");
+            }
+        });
+    });
+</script>
