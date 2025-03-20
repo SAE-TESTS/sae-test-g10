@@ -265,9 +265,9 @@
                     
                     ?>
 
-                    <button type="submit" class="boutonDeConnection">
-                        <?php echo isset($_SESSION['Mail_Uti']) ? $_SESSION['Mail_Uti'] : $htmlSeConnecter; ?>
-                    </button>
+                    <input type="submit" 
+                        value="<?php echo isset($_SESSION['Mail_Uti']) ? $_SESSION['Mail_Uti'] : $htmlSeConnecter; ?>" 
+                        class="boutonDeConnection">
                     <input type="hidden" name="popup" value=<?php if(isset($_SESSION['Mail_Uti'])){echo '"info_perso"';}else{echo '"sign_in"';}?>>
                 
                 </form>

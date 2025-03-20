@@ -116,13 +116,13 @@ body{
 }
 
 
-.boutonDeConnection{ /* test */
+.boutonDeConnection{
     height: 60px;
     margin-right: 20px;
     background: url('../img/connexion.svg') no-repeat;
     background-position: calc(100% - 10px) center;
     cursor: pointer;
-
+    background-color: #45a049;
     padding: 12px 20px;
     color: #000;
     border: 2px solid #71B340;
