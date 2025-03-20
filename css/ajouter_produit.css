@@ -1,0 +1,82 @@
+/* Centrage global + conteneur */
+.container-ajout {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Titre en haut */
+.title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Conteneur du formulaire */
+.form-ajout {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Champs de formulaire */
+.form-ajout input,
+.form-ajout select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Label uniformisé avec les espaces */
+.form-ajout label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Conteneur boutons */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Bouton vert (Confirmer) */
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+}
+
+/* Bouton gris (Annuler) */
+.cancel-button {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.cancel-button:hover {
+    background-color: #505050;
+}
+
+/* Ajout propre pour le bouton fichier */
+input[type="file"] {
+    border: none;
+    margin-top: 5px;
+}
