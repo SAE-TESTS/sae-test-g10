@@ -58,8 +58,13 @@
             $serveur = "localhost";
             $motdepasse = "ahV4saerae";
             $basededonnees = "inf2pj_02";
-            // Connect to database
-            return new PDO('mysql:host=' . $serveur . ';dbname=' . $basededonnees, $utilisateur, $motdepasse);
+            
+            $bdd = new PDO("mysql:host=$serveur;dbname=$basededonnees;charset=utf8mb4", $utilisateur, $motdepasse, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+        
+            $bdd->exec("SET NAMES utf8mb4");
+            return $bdd;
         }
 
         function latLongGps($url){

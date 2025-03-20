@@ -188,4 +188,21 @@ $htmlStockDeuxPoints = "Existencias disponibles: ";
 $htmlImageNonFournie = "Imagen no proporcionada";
 $htmlMaxStock = "Cantidad máxima";
 $htmlProduitEnRupture = "Producto agotado";
+$htmlTout = "Todo";
+$htmlAnimaux = "Animales";
+$htmlFruits = "Frutas";
+$htmlGraines = "Semillas";
+$htmlLegumes = "Verduras";
+$htmlPlanches = "Tablas";
+$htmlViande = "Carne";
+$htmlVin = "Vino";
+$typeProduitsTrad = [
+    "Animaux" => "Animales",
+    "Fruits" => "Frutas",
+    "Graines" => "Semillas",
+    "Légumes" => "Verduras",
+    "Planches" => "Tablas",
+    "Viande" => "Carne",
+    "Vin" => "Vino"
+];
 ?>

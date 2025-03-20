@@ -18,8 +18,12 @@
         $motdepasse = "ahV4saerae";
         $basededonnees = "inf2pj_02";
     
-        // Connect to database
-        return new PDO('mysql:host=' . $serveur . ';dbname=' . $basededonnees, $utilisateur, $motdepasse);
+        $bdd = new PDO("mysql:host=$serveur;dbname=$basededonnees;charset=utf8mb4", $utilisateur, $motdepasse, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]);
+    
+        $bdd->exec("SET NAMES utf8mb4");
+        return $bdd;
       }
       if(!isset($_SESSION)){
         session_start();
@@ -219,7 +223,7 @@
                                 while ($i < count($returnQueryGetProducts)) {
                                     $Id_Produit = $returnQueryGetProducts[$i]["Id_Produit"];
                                     $nomProduit = $returnQueryGetProducts[$i]["Nom_Produit"];
-                                    $typeProduit = $returnQueryGetProducts[$i]["Desc_Type_Produit"];
+                                    $typeProduit = trim($returnQueryGetProducts[$i]["Desc_Type_Produit"]); // Nettoyage du type
                                     $prixProduit = $returnQueryGetProducts[$i]["Prix_Produit_Unitaire"];
                                     $QteProduit = $returnQueryGetProducts[$i]["Qte_Produit"];
                                     $unitePrixProduit = $returnQueryGetProducts[$i]["Nom_Unite_Prix"];
@@ -227,9 +231,17 @@
                                     // Vérifier si le produit est en rupture de stock pour ajouter une classe CSS spécifique
                                     $classStock = ($QteProduit == 0) ? ' out-of-stock' : '';
                                 
+                                    
+                                    // S'assurer que la clé utilisée correspond bien à la base de données
+                                    $typeProduit = trim($returnQueryGetProducts[$i]["Desc_Type_Produit"]); 
+                                    $typeProduit = ucfirst(strtolower($typeProduit)); // Normalisation de la casse
+
+                                    // Vérification si la traduction existe dans le tableau
+                                    $typeProduitTraduit = isset($typeProduitsTrad[$typeProduit]) ? $typeProduitsTrad[$typeProduit] : $typeProduit; 
+
                                     echo '<div class="squareProduct' . $classStock . '">';
                                     echo '<h3>' . $nomProduit . '</h3>';
-                                    echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduit . '</p>';
+                                    echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduitTraduit . '</p>';
                                     echo '<p><strong>' . $htmlPrix . '</strong> ' . $prixProduit . ' €/' . $unitePrixProduit . '</p>';
                                     
                                     // Affichage du stock disponible
