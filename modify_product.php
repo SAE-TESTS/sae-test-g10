@@ -42,6 +42,26 @@ $stmt->execute([
     ':Id_Produit' => $Id_Produit
 ]);
 
-// Redirection vers la liste des produits
+// Gestion de l'upload de l'image
+if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+    $targetDir = __DIR__ . "/img_produit/";
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0777, true);
+    }
+
+    $newFileName = $Id_Produit . ".png";  
+    $targetPath = $targetDir . $newFileName;
+
+    if (file_exists($targetPath)) {
+        unlink($targetPath);
+    }
+
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetPath)) {
+        echo "Image enregistrée avec succès.";
+    } else {
+        die("Erreur : Impossible de déplacer le fichier.");
+    }
+}
+
 header('Location: produits.php');
 exit();

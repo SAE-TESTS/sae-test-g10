@@ -12,13 +12,20 @@
 <body>
 
 <?php
-     function dbConnect(){
-        $host = 'localhost';
-        $dbname = 'inf2pj_02';
-        $user = 'inf2pj02';
-        $password = 'ahV4saerae';
-        return new PDO('mysql:host='.$host.';dbname='.$dbname,$user,$password);
-      }
+     function dbConnect()
+     {
+         $utilisateur = "inf2pj02";
+         $serveur = "localhost";
+         $motdepasse = "ahV4saerae";
+         $basededonnees = "inf2pj_02";
+ 
+         $bdd = new PDO("mysql:host=$serveur;dbname=$basededonnees;charset=utf8mb4", $utilisateur, $motdepasse, [
+             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+         ]);
+ 
+         $bdd->exec("SET NAMES utf8mb4");
+         return $bdd;
+     }
       if(!isset($_SESSION)){
         session_start();
     }
@@ -133,7 +140,6 @@
 
 
                     <!-- partie de gauche avec les produits -->
-                    <p><center><U><?php echo $htmlMesProduitsEnStock; ?></U></center></p>
                     <div class="gallery-container">
                     <?php
                     // Connexion à la base de données
@@ -206,7 +212,7 @@
                             echo '</form>';
                     
                             // Bouton de suppression (inchangé)
-                            echo '<form action="supprimer_produit.php" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ' . $nomProduit . ' ?\');">';
+                            echo '<form action="delete_product.php" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ' . $nomProduit . ' ?\');">';
                             echo '<input type="hidden" name="Id_Produit" value="' . $Id_Produit . '">';
                             echo '<button type="submit" class="btn-delete">' . $htmlSupprimer . '</button>';
                             echo '</form>';
