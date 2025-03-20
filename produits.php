@@ -135,51 +135,122 @@
                     <!-- partie de gauche avec les produits -->
                     <p><center><U><?php echo $htmlMesProduitsEnStock; ?></U></center></p>
                     <div class="gallery-container">
-                        <?php
-                            $bdd=dbConnect();
-                            $queryGetProducts = $bdd->prepare(('SELECT Id_Produit, Nom_Produit, Desc_Type_Produit, Prix_Produit_Unitaire, Nom_Unite_Prix, Qte_Produit, Nom_Unite_Stock FROM Produits_d_un_producteur WHERE Id_Prod= :Id_Prod ;'));
-                            $queryGetProducts->bindParam(":Id_Prod", $Id_Prod, PDO::PARAM_STR);
-                            $queryGetProducts->execute();
-                            $returnQueryGetProducts = $queryGetProducts->fetchAll(PDO::FETCH_ASSOC);
+                    <?php
+                    // Connexion à la base de données
+                    $bdd = dbConnect();
+                    $queryGetProducts = $bdd->prepare(
+                        'SELECT Id_Produit, Nom_Produit, Desc_Type_Produit, Prix_Produit_Unitaire, Nom_Unite_Prix, Qte_Produit 
+                        FROM Produits_d_un_producteur 
+                        WHERE Id_Prod = :Id_Prod;'
+                    );
+                    $queryGetProducts->bindParam(":Id_Prod", $Id_Prod, PDO::PARAM_INT);
+                    $queryGetProducts->execute();
+                    $returnQueryGetProducts = $queryGetProducts->fetchAll(PDO::FETCH_ASSOC);
 
-                            $i=0;
-                            if(count($returnQueryGetProducts)==0){
-                                echo "<?php echo $htmlAucunProduitEnStock; ?>";
-                            }
-                            else{
-                                while ($i<count($returnQueryGetProducts)){
-                                    $Id_Produit = $returnQueryGetProducts[$i]["Id_Produit"];
-                                    $nomProduit = $returnQueryGetProducts[$i]["Nom_Produit"];
-                                    $typeProduit = $returnQueryGetProducts[$i]["Desc_Type_Produit"];
-                                    $prixProduit = $returnQueryGetProducts[$i]["Prix_Produit_Unitaire"];
-                                    $QteProduit = $returnQueryGetProducts[$i]["Qte_Produit"];
-                                    $unitePrixProduit = $returnQueryGetProducts[$i]["Nom_Unite_Prix"];
-                                    $Nom_Unite_Stock = $returnQueryGetProducts[$i]["Nom_Unite_Stock"];
+                    // Tableau des traductions des unités
+                    $unitesTrad = [
+                        "Kg" => $htmlKg,
+                        "L" => $htmlL,
+                        "m²" => $htmlM2,
+                        "Pièce" => $htmlPiece,
+                        "le kilo" => $htmlLeKilo,
+                        "la pièce" => $htmlLaPiece
+                    ];
 
-                                        echo '<style>';
-                                        echo 'form { display: inline-block; margin-right: 1px; }'; // Ajustez la marge selon vos besoins
-                                        echo 'button { display: inline-block; }';
-                                        echo '</style>';
-                                        echo '<div class="square1" >';
-                                        echo $htmlProduitDeuxPoints, $nomProduit . "<br>";
-                                        echo $htmlTypeDeuxPoints, $typeProduit . "<br><br>";
-                                        echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="'.$htmlImageNonFournie.'" style="width: 85%; height: 70%;" ><br>';
-                                        echo $htmlPrix, $prixProduit .' €/'.$unitePrixProduit. "<br>";
-                                        echo $htmlStockDeuxPoints, $QteProduit .' '.$Nom_Unite_Stock. "<br>";
-                                        echo '<form action="product_modification.php" method="post">';
-                                        echo '<input type="hidden" name="modifyIdProduct" value="'.$Id_Produit.'">';
-                                        echo '<button type="submit" name="action">'.$htmlModifier.'</button>';
-                                        echo '</form>';
-                                        echo '<form action="delete_product.php" method="post">';
-                                        echo '<input type="hidden" name="deleteIdProduct" value="'.$Id_Produit.'">';
-                                        echo '<button type="submit" name="action">'.$htmlSupprimer.'</button>';
-                                        echo '</form>';
-                                        echo '</div> '; 
-                                    
-                                    $i++;
-                                }
-                            }
-                        ?>
+                    // Tableau des traductions des types de produits
+                    $typeProduitsTrad = [
+                        "Animaux" => $htmlAnimaux,
+                        "Fruits" => $htmlFruits,
+                        "Graines" => $htmlGraines,
+                        "Légumes" => $htmlLegumes,
+                        "Planches" => $htmlPlanches,
+                        "Viande" => $htmlViande,
+                        "Vin" => $htmlVin
+                    ];
+
+                    echo '<center><h2>' . $htmlMesProduitsEnStock . '</h2></center>';
+                    echo '<div class="gallery-container">';
+
+                    if (count($returnQueryGetProducts) == 0) {
+                        echo "<p>$htmlAucunProduitEnStock</p>";
+                    } else {
+                        foreach ($returnQueryGetProducts as $produit) {
+                            $Id_Produit = $produit["Id_Produit"];
+                            $nomProduit = $produit["Nom_Produit"];
+                            $typeProduit = trim($produit["Desc_Type_Produit"]);
+                            $prixProduit = $produit["Prix_Produit_Unitaire"];
+                            $QteProduit = $produit["Qte_Produit"];
+                            $unitePrixProduit = trim($produit["Nom_Unite_Prix"]);
+                    
+                            // Normalisation et traduction
+                            $typeProduit = ucfirst(strtolower($typeProduit));
+                            $typeProduitTraduit = isset($typeProduitsTrad[$typeProduit]) ? $typeProduitsTrad[$typeProduit] : $typeProduit;
+                            $uniteTraduit = isset($unitesTrad[$unitePrixProduit]) ? $unitesTrad[$unitePrixProduit] : $unitePrixProduit;
+                    
+                            // Détection du stock vide
+                            $classStock = ($QteProduit == 0) ? ' out-of-stock' : '';
+                    
+                            echo '<div class="squareProduct' . $classStock . '">';
+                            echo '<h3>' . $nomProduit . '</h3>';
+                            echo '<p><strong>' . $htmlTypeDeuxPoints . '</strong> ' . $typeProduitTraduit . '</p>';
+                            echo '<p><strong>' . $htmlPrix . '</strong> ' . $prixProduit . ' €/' . $uniteTraduit . '</p>';
+                            echo '<p><strong>' . $htmlStockDeuxPoints . '</strong> ' . $QteProduit . ' ' . $uniteTraduit . '</p>';
+                            
+                            // Image du produit
+                            echo '<img class="img-produit" src="img_produit/' . $Id_Produit  . '.png" alt="' . $htmlImageNonFournie . '" style="width: 100%; height: 85%;" ><br>';
+                            
+                            // Bouton pour ouvrir la pop-up de modification
+                            echo '<button type="button" class="btn-modifier"
+                                    data-id="' . $Id_Produit . '" 
+                                    data-nom="' . $nomProduit . '" 
+                                    data-type="' . $typeProduitTraduit . '" 
+                                    data-prix="' . $prixProduit . '" 
+                                    data-quantite="' . $QteProduit . '" 
+                                    >
+                                    ' . $htmlModifier . '
+                                  </button>';
+                    
+                            // Bouton de suppression (inchangé)
+                            echo '<form action="supprimer_produit.php" method="POST" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer ' . $nomProduit . ' ?\');">';
+                            echo '<input type="hidden" name="Id_Produit" value="' . $Id_Produit . '">';
+                            echo '<button type="submit" class="btn-delete">' . $htmlSupprimer . '</button>';
+                            echo '</form>';
+                    
+                            echo '</div>';
+                        }
+                    }
+
+                    
+
+                    echo '</div>'; // Fin de la galerie de produits
+
+                    ?>
+
+                    <div id="popupModification" class="popup" style="display: none;">
+                        <div class="contenuPopup">
+                            <button class="boutonQuitPopup" onclick="fermerPopup()">✖</button>
+                            <h3 class="titrePopup">Modifier le produit</h3>
+                            <form id="formModifierProduit" action="product_modification.php" method="post" class="formPopup">
+                                <input type="hidden" name="Id_Produit" id="popupIdProduit">
+
+                                <label for="popupNomProduit">Nom :</label>
+                                <input type="text" name="Nom_Produit" id="popupNomProduit" class="zoneDeTextePopup">
+
+                                <label for="popupTypeProduit">Type :</label>
+                                <input type="text" name="Type_Produit" id="popupTypeProduit" class="zoneDeTextePopup">
+
+                                <label for="popupPrixProduit">Prix :</label>
+                                <input type="number" step="0.01" name="Prix_Produit" id="popupPrixProduit" class="zoneDeTextePopup">
+
+                                <label for="popupQuantiteProduit">Quantité :</label>
+                                <input type="number" name="Qte_Produit" id="popupQuantiteProduit" class="zoneDeTextePopup">
+
+                                <button type="submit" class="boutonPopup">Sauvegarder</button>
+                            </form>
+                        </div>
+                    </div>
+
+
                     </div>
 
 
@@ -197,4 +268,5 @@
         </div>
     </div>
     <?php require "popups/gestion_popups.php";?>
+    <script src="js/popup.js"></script>
 </body>
