@@ -34,7 +34,6 @@ body{
     padding: 0px;
     height: 100%;
     width: 100%;
-
     display: grid;
     grid-template-columns: 2fr 9fr;
 }
@@ -44,11 +43,8 @@ body{
     padding: 0px;
     height: 100%;
     min-width: 180px;
-
     display: block;
-
     border-right: 2px solid #152f16;
-
     background-color: #669D31;
 }
 
@@ -171,7 +167,7 @@ body{
 }
 
 button, input[type="button"], input[type="submit"] {
-    padding: 12px 20px;
+    padding: 6px 10px;
     font-size: 18px;
     color: #000;
     background-color: #fff;
@@ -189,6 +185,18 @@ button, input[type="button"], input[type="submit"]:hover {
     color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);                                                                                                  
+}
+
+.btn-modify{
+    background-color: #45a049;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.btn-delete{
+    background-color: #a50616;
+    margin-bottom: 10px;
+    border: none;
 }
 
 
