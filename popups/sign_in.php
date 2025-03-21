@@ -13,7 +13,6 @@ if (isset($_POST['formClicked'])){
     unset($_POST['formClicked']);
     $_SESSION['actualiser'] = true;
     header("Location: index.php");
-    echo "<script>window.location.reload();</script>";
     
     exit();
 }

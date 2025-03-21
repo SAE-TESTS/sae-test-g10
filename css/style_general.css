@@ -441,3 +441,80 @@ input[disabled] {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+
+
+/* BOUTON DANS ACHATS.PHP */
+
+/* 🟢 Boîte contenant chaque commande */
+.commande {
+    background-color: white; /* Fond blanc propre */
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    border-left: 6px solid #4CAF50; /* Par défaut : bordure verte */
+}
+
+/* 🟠 Statuts colorés en fonction de la commande */
+.commande.annulee { border-left-color: #d9534f; }  /* Rouge pour "Annulée" */
+.commande.livree { border-left-color: #5bc0de; }  /* Bleu pour "Livrée" */
+.commande.encours { border-left-color: #f0ad4e; }  /* Orange pour "En cours" */
+.commande.prete { border-left-color: #5cb85c; }  /* Vert plus clair pour "Prête" */
+
+/* 🟣 Titre des commandes */
+.commande h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333; /* Texte légèrement foncé */
+}
+
+/* 🟡 Informations générales de la commande */
+.commande .infos {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* 🟢 Total affiché à droite */
+.commande .total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    color: #4CAF50;
+}
+
+/* 🟠 Ajustement des boutons d'action */
+.commande .btn-action {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-message {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-message:hover {
+    background-color: #388E3C;
+}
+
+.btn-danger {
+    background-color: #d9534f; /* Rouge */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
