@@ -53,14 +53,20 @@
                         unset($_SESSION['tempPopup']);
                     }
                     ?>
-					<input type="submit" value="<?php if (!isset($_SESSION['Mail_Uti'])){/*$_SESSION = array()*/; echo($htmlSeConnecter);} else {echo ''.$_SESSION['Mail_Uti'].'';}?>" class="boutonDeConnection">
-                    <input type="hidden" name="popup" value=<?php if(isset($_SESSION['Mail_Uti'])){echo '"info_perso"';}else{echo '"sign_in"';}?>>
                     <?php
-                    if (isset($_SESSION["isAdmin"]) and ($_SESSION["isAdmin"]==true)){
-                    echo'<a class="bontonDeNavigation" href="broadcastuser.php">'.$htmlbroadcastuser.'</a>';
-                    echo'<a class="bontonDeNavigation" href="broadcastprod.php">'.$htmlbroadcastprod.'</a>';
+                    if (isset($_SESSION["isAdmin"]) and ($_SESSION["isAdmin"] == true)) {
+                        echo '<div class="dropdown">
+                                <button class="dropbtn">Broadcast</button>
+                                <div class="dropdown-content">
+                                    <a href="broadcastuser.php">'.$htmlbroadcastuser.'</a>
+                                    <a href="broadcastprod.php">'.$htmlbroadcastprod.'</a>
+                                </div>
+                            </div>';
                     }
                     ?>
+					<input type="submit" value="<?php if (!isset($_SESSION['Mail_Uti'])){/*$_SESSION = array()*/; echo($htmlSeConnecter);} else {echo ''.$_SESSION['Mail_Uti'].'';}?>" class="boutonDeConnection">
+                    <input type="hidden" name="popup" value=<?php if(isset($_SESSION['Mail_Uti'])){echo '"info_perso"';}else{echo '"sign_in"';}?>>
+                    
                 </form>
             </div>
             <div class="contenuPage">

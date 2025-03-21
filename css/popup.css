@@ -20,7 +20,8 @@
     background-color: #2c441563;
 }
 
-.contenuPopup{
+.contenuPopup {
+    position: relative; /* Ajouté pour que le bouton soit positionné par rapport à cette div */
     max-width: 50%;
     width: 50%;
     min-width: fit-content;
@@ -28,8 +29,7 @@
     background-color: #FFFFFF;
     border: 2px solid #525252;
     border-radius: 20px;
-
-    display:grid;
+    display: grid;
     row-gap: 10px;
 }
 
@@ -44,17 +44,29 @@
     overflow-y: scroll;
 }
 
-.boutonQuitPopup{
-    background: url('../img/quit.svg') no-repeat;
-    background-size: 30px 30px;
+.boutonQuitPopup {
+    background: url('../img/quit.svg') no-repeat center;
+    background-size: contain;
     border: none;
-    padding: 0;
-    margin: 0;
     height: 30px;
     width: 30px;
     cursor: pointer;
+
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #525252;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    transition: transform 0.2s ease-in-out, filter 0.2s;
 }
 
+.boutonQuitPopup:hover {
+    filter: brightness(85%);
+    transform: scale(1.1);
+}
 
 .titrePopup{
     margin: 5px;
