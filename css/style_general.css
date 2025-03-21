@@ -521,3 +521,51 @@ input[disabled] {
 .btn-danger:hover {
     background-color: #c9302c;
 }   
+
+/* 🔽🔽🔽 MENU DÉROULANT MODIFIER STATUT 🔽🔽🔽 */
+.command-select {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #4CAF50;
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.command-select:hover {
+    border-color: #388E3C;
+}
+
+/* 📌 Ajustement de l'apparence des options du menu déroulant */
+.command-select option {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+}
+
+/* ✔ BOUTON CONFIRMER AMÉLIORÉ ✔ */
+.btn-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px; /* Ajout d'un espace avec le menu déroulant */
+}
+
+.btn-message:hover {
+    background-color: #388E3C; /* Teinte plus foncée au survol */
+}
+
+/* ✔ Alignement du formulaire de statut */
+.form-status {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre le menu déroulant et le bouton */
+    margin-top: 10px;
+}
