@@ -754,3 +754,80 @@ input[disabled] {
         width: 100%;
     }
 }
+
+
+
+/* ---------------------- */
+/* */
+/* PARTIE PANEL ADMIN */
+/* */
+/* ---------------------- */
+
+/* ✅ Conteneur principal des sections (Affichage en colonne) */
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ✅ Section contenant à la fois Producteurs et Utilisateurs */
+.admin-section {
+    width: 90%;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🏷 Titres des sections */
+.admin-section h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* 📌 Responsive */
+@media (max-width: 900px) {
+    .admin-section {
+        width: 100%;
+    }
+}
+
+/* ✅ Container des cartes - AFFICHAGE EN GRID */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 15px; /* Écart entre les cartes sur une même ligne */
+    row-gap: 65px; /* ✅ Écart vertical entre les lignes */
+    justify-content: center;
+}
+
+/* 🏷 Cartes utilisateurs */
+.squarePanelAdmin {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #4CAF50;
+    transition: transform 0.2s;
+}
+
+/* 🏷 Animation hover */
+.squarePanelAdmin:hover {
+    transform: scale(1.02);
+}
+
+/* 🏷 Bouton suppression */
+.squarePanelAdmin input[type="submit"] {
+    background-color: #d9534f;
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
