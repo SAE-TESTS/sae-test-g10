@@ -569,3 +569,76 @@ input[disabled] {
     gap: 10px; /* Espace entre le menu déroulant et le bouton */
     margin-top: 10px;
 }
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Boîte du produit avec taille uniforme */
+.squareProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacement uniforme */
+    align-items: center;
+    text-align: center;
+    width: 250px; /* Taille fixe pour éviter le redimensionnement aléatoire */
+    min-height: 450px; /* Ajustez selon vos besoins */
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.squareProduct:hover {
+    transform: translateY(-5px);
+}
+
+/* Stock vide en rouge */
+.out-of-stock {
+    background-color: #f8d7da; 
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Images des produits bien redimensionnées */
+.img-produit {
+    width: 100%;
+    height: 180px;  /* Taille uniforme */
+    object-fit: cover; /* Coupe les images pour conserver le ratio */
+    border-radius: 5px;
+}
+
+/* Boutons uniformes */
+.squareProduct button {
+    width: 90%;
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+/* Ajustement du texte */
+.squareProduct h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.squareProduct p {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Responsivité */
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .squareProduct {
+        width: 90%; /* Plus large sur petits écrans */
+    }
+}
