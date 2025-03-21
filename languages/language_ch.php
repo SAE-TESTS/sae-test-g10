@@ -291,4 +291,25 @@ $htmlPiece = "件";
 $htmlImageDeuxPoints = "图片：";
 $htmlConfirmerModifProd = "确认修改";
 $htmlAnnulerModifProd = "取消修改";
+
+$htmlMesCommandes = "我的订单";
+$htmlCommandeStatut = "订单状态";  
+$htmlModifierStatut = "更改状态";  
+$htmlConfirmerStatut = "确认";  
+
+$htmlNomClient = "客户";  
+$htmlTotalDeuxPoints = "总计: ";  
+$htmlPrix = "价格: ";  
+$htmlTypeDeuxPoints = "类型: ";  
+$htmlStockDeuxPoints = "库存: ";  
+
+$htmlEnvoyerMessage = "发送消息";  
+$htmlGenererPDF = "生成PDF";  
+$htmlSupprimer = "删除";  
+$htmlModifier = "编辑";  
+
+$htmlStatutEncours = "处理中";  
+$htmlStatutPrete = "已准备";  
+$htmlStatutLivree = "已送达";  
+$htmlStatutAnnulee = "已取消";  
 ?>

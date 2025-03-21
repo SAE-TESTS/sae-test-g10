@@ -222,4 +222,25 @@ $htmlPiece = "Штука";
 $htmlImageDeuxPoints = "Изображение:";
 $htmlConfirmerModifProd = "Подтвердить изменения";
 $htmlAnnulerModifProd = "Отменить изменения";
+
+$htmlMesCommandes = "Мои заказы";
+$htmlCommandeStatut = "Статус заказа";  
+$htmlModifierStatut = "Изменить статус";  
+$htmlConfirmerStatut = "Подтвердить";  
+
+$htmlNomClient = "Клиент";  
+$htmlTotalDeuxPoints = "Всего: ";  
+$htmlPrix = "Цена: ";  
+$htmlTypeDeuxPoints = "Тип: ";  
+$htmlStockDeuxPoints = "Запас: ";  
+
+$htmlEnvoyerMessage = "Отправить сообщение";  
+$htmlGenererPDF = "Сгенерировать PDF";  
+$htmlSupprimer = "Удалить";  
+$htmlModifier = "Редактировать";  
+
+$htmlStatutEncours = "В процессе";  
+$htmlStatutPrete = "Готово";  
+$htmlStatutLivree = "Доставлено";  
+$htmlStatutAnnulee = "Отменено";  
 ?>

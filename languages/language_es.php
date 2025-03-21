@@ -219,4 +219,25 @@ $htmlPiece = "Pieza";
 $htmlImageDeuxPoints = "Imagen :";
 $htmlConfirmerModifProd = "Confirmar modificación";
 $htmlAnnulerModifProd = "Cancelar modificación";
+
+$htmlMesCommandes = "Mis pedidos";
+$htmlCommandeStatut = "Estado del pedido";  
+$htmlModifierStatut = "Cambiar estado";  
+$htmlConfirmerStatut = "Confirmar";  
+
+$htmlNomClient = "Cliente";  
+$htmlTotalDeuxPoints = "Total: ";  
+$htmlPrix = "Precio: ";  
+$htmlTypeDeuxPoints = "Tipo: ";  
+$htmlStockDeuxPoints = "Stock: ";  
+
+$htmlEnvoyerMessage = "Enviar un mensaje";  
+$htmlGenererPDF = "Generar en PDF";  
+$htmlSupprimer = "Eliminar";  
+$htmlModifier = "Editar";  
+
+$htmlStatutEncours = "En proceso";  
+$htmlStatutPrete = "Listo";  
+$htmlStatutLivree = "Entregado";  
+$htmlStatutAnnulee = "Cancelado";  
 ?>

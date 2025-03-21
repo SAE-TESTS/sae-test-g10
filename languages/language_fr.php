@@ -221,4 +221,25 @@ $htmlPiece = "Pièce";
 $htmlImageDeuxPoints = "Image :";
 $htmlConfirmerModifProd = "Confirmer la modification";
 $htmlAnnulerModifProd = "Annuler la modification";
+
+$htmlMesCommandes = "Mes commandes";  
+$htmlCommandeStatut = "Statut de la commande";  
+$htmlModifierStatut = "Modifier le statut";  
+$htmlConfirmerStatut = "Confirmer";  
+
+$htmlNomClient = "Client";  
+$htmlTotalDeuxPoints = "Total : ";  
+$htmlPrix = "Prix : ";  
+$htmlTypeDeuxPoints = "Type : ";  
+$htmlStockDeuxPoints = "Stock : ";  
+
+$htmlEnvoyerMessage = "Envoyer un message";  
+$htmlGenererPDF = "Générer en PDF";  
+$htmlSupprimer = "Supprimer";  
+$htmlModifier = "Modifier";  
+
+$htmlStatutEncours = "En cours";  
+$htmlStatutPrete = "Prête";  
+$htmlStatutLivree = "Livrée";  
+$htmlStatutAnnulee = "Annulée";  
 ?>

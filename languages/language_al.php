@@ -220,4 +220,25 @@ $htmlPiece = "Stück";
 $htmlImageDeuxPoints = "Bild:";
 $htmlConfirmerModifProd = "Änderung bestätigen";
 $htmlAnnulerModifProd = "Änderung abbrechen";
+
+$htmlMesCommandes = "Meine Bestellungen";
+$htmlCommandeStatut = "Bestellstatus";  
+$htmlModifierStatut = "Status ändern";  
+$htmlConfirmerStatut = "Bestätigen";  
+
+$htmlNomClient = "Kunde";  
+$htmlTotalDeuxPoints = "Gesamt: ";  
+$htmlPrix = "Preis: ";  
+$htmlTypeDeuxPoints = "Typ: ";  
+$htmlStockDeuxPoints = "Bestand: ";  
+
+$htmlEnvoyerMessage = "Nachricht senden";  
+$htmlGenererPDF = "PDF erstellen";  
+$htmlSupprimer = "Löschen";  
+$htmlModifier = "Bearbeiten";  
+
+$htmlStatutEncours = "In Bearbeitung";  
+$htmlStatutPrete = "Bereit";  
+$htmlStatutLivree = "Geliefert";  
+$htmlStatutAnnulee = "Storniert";  
 ?>
