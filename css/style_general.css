@@ -642,3 +642,115 @@ input[disabled] {
         width: 90%; /* Plus large sur petits écrans */
     }
 }
+
+/* ------------------- */
+/* BROADCAST
+/* ------------------- */
+
+/* 🟢 CONTENEUR PRINCIPAL DU FORMULAIRE ADMIN */
+.admin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Centre verticalement */
+}
+
+/* 🟢 CARTE DU FORMULAIRE */
+.admin-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* 🔵 TITRE DU FORMULAIRE */
+.admin-title {
+    font-size: 24px;
+    color: #2d572c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 🟡 LABEL DU FORMULAIRE */
+.admin-label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* 🟣 ZONE DE MESSAGE */
+.admin-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #66a03d;
+    border-radius: 8px;
+    resize: none;
+    background: #f9f9f9;
+    transition: border 0.3s ease-in-out;
+}
+
+.admin-textarea:focus {
+    border: 2px solid #2d572c;
+}
+
+/* 🟠 BOUTON PRINCIPAL */
+.admin-button {
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.admin-button:hover {
+    background: #388E3C;
+}
+
+/* 🟠 STYLE DU BAS DE PAGE */
+.admin-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 🟣 BOUTON DU BAS DE PAGE */
+.admin-footer-button {
+    background: #ffffff;
+    color: #2d572c;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 2px solid #66a03d;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.admin-footer-button:hover {
+    background: #66a03d;
+    color: white;
+}
+
+/* 🟢 RESPONSIVE */
+@media screen and (max-width: 600px) {
+    .admin-card {
+        width: 95%;
+    }
+    .admin-footer {
+        flex-direction: column;
+    }
+    .admin-footer-button {
+        width: 100%;
+    }
+}
